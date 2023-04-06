@@ -8,8 +8,16 @@ var pwLength = function() {
 	console.log("Password length: " + lengthValue);
 	return lengthValue;
 }
-
-
+function generatePassword() {
+  
+  passwordCharacters = "";
+  newPassword = "";
+	var passwordLength = pwLength(); // Length of Password Requestd
+	var lowerCase = window.confirm("Lowercase Letters?"); // Use Lowercase Letters?
+	var upperCase = window.confirm("Uppercase Letters?"); // Use Uppercase Letters?
+	var numbers = window.confirm("Numbers?"); // Use Numbers?
+  var special = window.confirm("Special Characters?"); // Use Special Characters?
+}
 
 
 
