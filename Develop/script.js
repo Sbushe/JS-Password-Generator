@@ -17,17 +17,37 @@ function generatePassword() {
 	var upperCase = window.confirm("Uppercase Letters?"); // Use Uppercase Letters?
 	var numbers = window.confirm("Numbers?"); // Use Numbers?
   var special = window.confirm("Special Characters?"); // Use Special Characters?
+
+  // If no character options are selected, alert message and begin again.
+  if (lowerCase === false && upperCase === false && numbers === false && special === false) {
+    window.alert("Please select at least one password criteria.");
+    generatePassword();
+  }
+  else { // Build password characters string per requirements.
+    if (lowerCase) {
+      passwordCharacters = "abcdefghijklmnopqrstuvwxyz";
+    }
+    if (upperCase) {
+      passwordCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if (numbers) {
+      passwordCharacters += "0123456789";
+    }
+    if (special) {
+      passwordCharacters += " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+    }
+       
+    console.log("Use Characters: " + passwordCharacters);
+
+    for (var i = 0; i < passwordLength; i++) {
+      newPassword += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
+    }
+  }
+	console.log("Pasword is: " + newPassword);
+	return newPassword;
 }
 
-
-
-
-
-
-
-
-
-
+// Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
